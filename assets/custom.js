@@ -16,7 +16,7 @@
     
         $('.featured-item a').addClass('btn btn-dark stretch-link');
     
-        $('.featured-item:first h4').append('<span class="badge bg-secondary">Novo</span>')
+        $('.featured-item:first h4').append('<span class="badge bg-gold">Novo</span>')
         // $('.featured-item:first h4').start('<span class="badge bg-secondary">Novo</span>')
         // $('.featured-item:first h4').html('<span class="badge bg-secondary">Novo</span>')
         // $('.featured-item:first h4').addClass('active')

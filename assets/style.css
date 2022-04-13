@@ -18,8 +18,18 @@ p {
 	color: #4a4a4a;
 	line-height: 24px;
 }
+
 a {
 	text-decoration: none!important;
+}
+
+.bg-gold{
+	background-color: goldenrod;
+}
+
+.featured-item .btn-dark:hover{
+	box-shadow: 0 0 1rem gold;
+	color: goldenrod;
 }
 
 #logo {
@@ -198,11 +208,15 @@ a {
 .featured-item:hover h4 {
 	color: darkgoldenrod;
 }
+.featured-item span{
+	margin-left: .5rem;
+}
+
 .featured-item h6 {
 	color: darkgoldenrod;
 	font-size: 15px;
 	font-weight: 700;
-	margin-bottom: 0px;
+	margin-bottom: .5rem;
 }
 .owl-theme .owl-dots {
 	text-align: center;
@@ -740,6 +754,19 @@ a {
 	.featured-page {
 		margin-top: 80px;
 	}
+
+	.owl-stage{
+		width: 100% !important;
+	}
+
+	.owl-item{
+		width: 100% !important;
+	}
+
+	.owl-dots{
+		display: none;
+	}
+
 	.about-page,
 	.contact-page {
 		margin-top: 0px;
@@ -756,5 +783,17 @@ a {
 		margin-top: 15px;
 		text-align: left;
 	} 
+
+	.owl-stage{
+		width: 100% !important;
+	}
+
+	.owl-item{
+		width: 100% !important;
+	}
+
+	.owl-dots{
+		display: none;
+	}
 
 }
