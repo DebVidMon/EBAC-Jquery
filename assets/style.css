@@ -205,9 +205,6 @@ a {
 	margin-top: 15px;
 	transition: all 0.5s;
 }
-.featured-item:hover h4 {
-	color: darkgoldenrod;
-}
 .featured-item span{
 	margin-left: .5rem;
 }
