@@ -773,6 +773,19 @@ a {
 
 @media (max-width: 767px) {
 
+	.banner .caption {
+		padding-top: 15%;
+		margin-left: 50%;
+		/* max-width: 12rem; */
+		text-align: center;
+	}
+
+	.banner .caption p{
+		font-size: 1rem;
+		font-weight: 400;
+		line-height: 1.1rem;
+	}
+
 	.subscribe-form .main-content form input.button {
 		margin-top: 20px;
 	}
