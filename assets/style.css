@@ -703,7 +703,6 @@ a {
 
 /* Responsive Style */
 @media (max-width: 991px) {
-
 	.banner {
 		border-top: none;
 		margin-top: 0px;
@@ -757,7 +756,11 @@ a {
 	}
 
 	.owl-item{
-		width: 100% !important;
+		width: 48% !important;
+	}
+
+	.owl-item .active{
+		width: 48% !important;
 	}
 
 	.owl-dots{
@@ -772,11 +775,16 @@ a {
 }
 
 @media (max-width: 767px) {
-
+	.banner{
+		border-top: none;
+		margin: -6rem 0;
+		background-image: url(../assets/images2/headerMob.jpg);
+		background-size: contain;
+	}
+	
 	.banner .caption {
 		padding-top: 15%;
 		margin-left: 50%;
-		/* max-width: 12rem; */
 		text-align: center;
 	}
 
