@@ -32,6 +32,10 @@ a {
 	color: goldenrod;
 }
 
+.owl-item{
+	padding: .2rem !important;
+}
+
 #logo {
 	font-family: 'Lavishly Yours', cursive;
 	color: darkgoldenrod;
@@ -189,7 +193,7 @@ a {
 	background-color: #fff;
 	border-radius: 5px;
 	border: 1px solid #eee;
-	padding: 20px;
+	padding: 1.25rem;
 	transition: all 0.5s;
 }
 .featured-item:hover {
@@ -751,21 +755,27 @@ a {
 		margin-top: 80px;
 	}
 
-	.owl-stage{
+	/* .owl-stage{
 		width: 100% !important;
-	}
+	} */
 
-	.owl-item{
+	/* .owl-item{
+		margin: 0 !important;
+		display: block !important;
+		float: left !important;
 		width: 48% !important;
+		padding: .2rem !important;
 	}
 
-	.owl-item .active{
+	.owl-item.active{
 		width: 48% !important;
-	}
-
+		display: block !important;
+		float: left !important;
+	} */
+/* 
 	.owl-dots{
 		display: none;
-	}
+	} */
 
 	.about-page,
 	.contact-page {
@@ -812,6 +822,10 @@ a {
 
 	.owl-dots{
 		display: none;
+	}
+
+	#logo {
+		font-size: 3rem;
 	}
 
 }
