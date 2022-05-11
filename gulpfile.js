@@ -11,7 +11,7 @@ function tarefasCSS(cb) {
         .pipe(concat('libs.css'))
         .pipe(cssmin())
         .pipe(rename({ suffix: '.min'})) // libs.min.css
-        .pipe(gulp.dest('./dist/css'))
+        .pipe(gulp.dest('./dist/css'));
 
 }
 
@@ -21,7 +21,7 @@ function tarefasJS(){
         .pipe(concat('libs.js'))
         .pipe(uglify())
         .pipe(rename({ suffix: '.min'})) //libs.min.js
-        .pipe(gulp.dest('./dist/js'))
+        .pipe(gulp.dest('./dist/js'));
 }
 
 
@@ -39,7 +39,7 @@ function tarefasImagem(){
             concurrent: 10,
             quiet: true
         }))
-        .pipe(gulp.dest('./dist/images'))
+        .pipe(gulp.dest('./dist/images'));
 }
 
 exports.styles = tarefasCSS
