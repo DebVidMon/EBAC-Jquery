@@ -26,13 +26,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="products.html">Produtos</a>
+                        <a class="nav-link" href="#produtos">Produtos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">Sobre nós</a>
+                        <a class="nav-link nav-modal-open" href="#sobre" rel="sobre">Sobre nós</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contato</a>
+                        <a class="nav-link nav-modal-open" href="#contato" rel="contato">Contato</a>
                     </li>
                 </ul>
             </div>
@@ -58,7 +58,7 @@
                 <div class="col-md-12">
                     <div class="section-heading">
                         <div class="line-dec"></div>
-                        <h1>Destaques</h1>
+                        <h1 id="produtos">Destaques</h1>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -170,6 +170,73 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal -->
+    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">              
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="contato" class="visually-hidden">
+
+        <form action="post" class="form">
+
+            <div class="mb-3">
+              <label for="nome" class="form-label">Nome</label>
+              <input type="text" name="nome" id="nome" title="Insira seu nome completo" class="form-control" placeholder="Digite seu nome" aria-describedby="helpNome">
+              <small id="helpNome" class="text-muted">
+                  Digite um nome válido
+              </small>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" name="email" id="email" class="form-control" placeholder="Digite seu e-mail" aria-describedby="helpEmail">
+                <small id="helpEmail" class="text-muted">
+                    Digite um e-mail válido
+                </small>
+            </div>
+
+            <div class="mb-3">
+                <label for="phone" class="form-label">Celular</label>
+                <input type="text" name="phone" id="phone" class="form-control" placeholder="Digite seu número de celular" aria-describedby="helpCelular" required>
+                <small id="helpCelular" class="text-muted">
+                    Digite um celular válido
+                </small>
+            </div>
+
+            <div class="mb-3">
+                <label for="cpf" class="form-label">CPF</label>
+                <input type="text" name="cpf" id="cpf" class="form-control" placeholder="Digite seu cpf" aria-describedby="helpCPF" required>
+                <small id="helpCPF" class="text-muted">
+                    Digite um CPF válido
+                </small>
+            </div>
+
+            <button type="submit" class="btn btn-gold">Enviar</button>
+
+
+        </form>
+
+    </div>
+
+
+    <div id="sobre" class="visually-hidden">
+
+        <p>Pede Meia é uma empresa de Franca, no interior de São Paulo, conhecida pelas fábricas de sapato. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p>Vel, consequatur explicabo eos doloribus suscipit impedit nulla voluptates eius ad sint fugiat, atque corrupti, pariatur nobis dignissimos! Ut at tempore recusandae?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, consequatur explicabo eos doloribus suscipit impedit nulla voluptates eius ad sint fugiat, atque corrupti, pariatur nobis dignissimos! Ut at tempore recusandae?</p>
+
+    </div>
         
         <script src="./vendor/jquery/jquery-3.6.0.min.js"></script>
         <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

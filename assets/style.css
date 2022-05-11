@@ -1,10 +1,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&family=Ubuntu:wght@300&display=swap');
 
-
-
 html {
-	background-image:  url(./images2/background2.jpg);
+	background-image: url(./images2/background2.jpg);
 }
 
 body {
@@ -148,6 +146,7 @@ a {
 	line-height: 30px;
 	font-family: 'FontAwesome';
 }
+
 /* Banner Style */
 .banner {
 	margin-top: 50px;
@@ -237,8 +236,33 @@ a {
 	margin: 0px 5px;
 	outline: none;
 }
+/* Modal */
+.modal-content{
+	background-color: #000;
+	color: white;
+	border-radius: 2rem;
+	border: 1px solid darkgoldenrod;
+}
 
+.modal-header{
+	border-radius: 2rem;
+	border-bottom: 1px solid darkgoldenrod;
+	background-color: goldenrod;
+}
 
+.modal-title{
+	color: black;
+	font-family: 'Lavishly Yours', cursive;
+	font-size: 3rem;
+}
+
+.btn-gold{
+	background-color: goldenrod;
+	color: #000;
+	font-weight: bolder;
+	border-radius: .8rem;
+	border: 1px solid darkgoldenrod;
+}
 
 /* Subscribe Style */
 .subscribe-form {
@@ -358,7 +382,8 @@ a {
 
 /* Sub Footer Style */
 .sub-footer {
-	border-top: 1px solid #eee;
+	background-color: #000;
+	border-top: 3px solid darkgoldenrod;
 	text-align: center;
 }
 .sub-footer p {
