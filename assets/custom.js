@@ -1,5 +1,4 @@
 // instancia jquery e evita conflitos
-// jQuery( function($){
 $(document).ready(function () {
   $(".owl-carousel").owlCarousel();
 
@@ -49,6 +48,20 @@ $(document).ready(function () {
   /*
    * Ouvinte de eventos .nav-modal-open
    */
+  $(".nav-modal-open").on("click", function (e) {
+    e.preventDefault();
+
+    let elem = $(this).attr("rel");
+
+    $(".modal-body").html($("#" + elem).html());
+
+    $(".modal-header h5.modal-title").html($(this).text());
+
+    let myModal = new bootstrap.Modal($("#modelId"));
+
+    myModal.show();
+  });
+
   $(".nav-modal-open").on("click", function (e) {
     e.preventDefault();
 
@@ -130,11 +143,11 @@ $(document).ready(function () {
 
   $("body").on("blur", "#phone", function () {
     validate($(this));
-    $(this).mask("00000-0000");
+    $(this).mask("(00) 00000-0000");
   });
 
   $("body").on("blur", "#cpf", function () {
     validate($(this));
     $(this).mask("000.000.000-00");
   });
-});
+})

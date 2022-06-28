@@ -295,16 +295,14 @@ a {
 	color: #fff;
 	display: inline;
 }
-.subscribe-form .main-content form input {
+/* .subscribe-form .main-content form input {
 	display: inline;
-}
+} */
 .subscribe-form .main-content form input {
 	width: 100%;
 	height: 46px;
 	border: 1px solid #fff;
-	background-color: transparent;
 	padding-left: 15px;
-	color: #fff;
 	outline: none;
 }
 .subscribe-form .main-content form button:focus {
@@ -314,7 +312,7 @@ a {
 	width: 100%;
 	height: 45px;
 	cursor: pointer;
-	background-color: #fff;
+	background-color: #000;
 	outline: none;
 	border-radius: 5px;
 	padding: 10px 15px;
