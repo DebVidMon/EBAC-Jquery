@@ -328,6 +328,10 @@ a {
 	border: none;
 }
 
+.text-muted{
+	font-weight: 700;
+	color: darkblue !important;
+}
 
 /* Footer Style */
 .footer {
