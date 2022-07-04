@@ -128,7 +128,7 @@ $('#form-submit').on('click', function(e){
    if( $('#email2').val() == '' ){
       return false
    } else if (emailPattern.test($('#email2').val()) == false){
-      elem.parent().find('.text-muted').show()
+      e.parent().find('.text-muted').show()
       return false
    } else {
       alert("email cadastrado com sucesso")
