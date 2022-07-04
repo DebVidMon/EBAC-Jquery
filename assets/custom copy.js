@@ -1,5 +1,8 @@
 // instancia jquery e evita conflitos
 $(document).ready(function(){
+
+   $(document).find('.text-muted').hide();
+   $(document).find('.text-muted1').hide();
    
    /* Ouvinte de eventos .nav-modal-open */
    $('.nav-modal-open').on('click', function(e){
@@ -126,9 +129,11 @@ $('#form-submit').on('click', function(e){
    e.preventDefault()
 
    if( $('#email2').val() == '' ){
+      $(document).find('#email2').addClass('campoErro')
       return false
    } else if (emailPattern.test($('#email2').val()) == false){
-      e.parent().find('.text-muted').show()
+      $(document).find('#email2').addClass('campoErro')
+      $(document).find('.text-muted1').show()
       return false
    } else {
       alert("email cadastrado com sucesso")
