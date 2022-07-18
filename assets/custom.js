@@ -120,7 +120,7 @@ $(document).ready(function () {
       alert("⚠️ Verifique os campos destacados");
       return false;
     } else {
-      alert("Formulário enviado com sucesso!");
+      alert("Formulário enviado com sucesso!✔️");
       return true;
     }
   });
@@ -166,7 +166,7 @@ $(document).ready(function () {
       $(document).find(".text-muted1").show();
       return false;
     } else {
-      alert("email cadastrado com sucesso");
+      alert("Email cadastrado com sucesso✔️");
     }
   });
 });
