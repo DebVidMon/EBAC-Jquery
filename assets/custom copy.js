@@ -1,144 +1,135 @@
 // instancia jquery e evita conflitos
-$(document).ready(function(){
+$(document).ready(function () {
+  $(document).find(".text-muted").hide();
+  $(document).find(".text-muted1").hide();
 
-   $(document).find('.text-muted').hide();
-   $(document).find('.text-muted1').hide();
-   
-   /* Ouvinte de eventos .nav-modal-open */
-   $('.nav-modal-open').on('click', function(e){
-      
+  /* Ouvinte de eventos .nav-modal-open */
+  $(".nav-modal-open").on("click", function (e) {
+    e.preventDefault();
+
+    let elem = $(this).attr("rel");
+
+    $(".modal-body").html($("#" + elem).html());
+
+    $(".modal-header h5.modal-title").html($(this).text());
+
+    let myModal = new bootstrap.Modal($("#modelId"));
+
+    myModal.show();
+
+    //se o botão fechar for clicado
+    $(".btn-close").on(click, function (e) {
       e.preventDefault();
-      
-      let elem = $(this).attr('rel')
-      
-     $('.modal-body').html($('#'+elem).html())
-     
-     $('.modal-header h5.modal-title').html($(this).text())
-
-     let myModal = new bootstrap.Modal($('#modelId'))
-     
-     myModal.show()
-     
-
-  })
+      myModal.hide();
+    });
+  });
 
   /* TODO: incrementar a validação
    * - checar se o nome é válido (mais de 2 caracteres)
    * - checar se o email é válido com ao menos um "@" e "."
    * - checar se o cpf é válido com regex */
-const emailPattern = /^[\w+.]+@\w+\.\w{2,}(?:\.\w{2})?$/
-const cpfPattern = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/
-  function validate( elem ){
-     if( elem.val() == '') {
+  const emailPattern = /^[\w+.]+@\w+\.\w{2,}(?:\.\w{2})?$/;
+  const cpfPattern = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/;
 
-        console.log('o campo de '+ elem.attr('name') + ' é obrigatório')
+  function validate(elem) {
+    if (elem.val() == "") {
+      console.log("o campo de " + elem.attr("name") + " é obrigatório");
 
-        elem.parent().find('.text-muted').show()
+      elem.parent().find(".text-muted").show();
 
-        elem.addClass('invalid')
+      elem.addClass("campoErro");
 
-        return false
-     } else {
-        elem.parent().find('.text-muted').hide()
-        elem.removeClass('invalid')
-     }
+      return false;
+    } else {
+      elem.parent().find(".text-muted").hide();
+      elem.removeClass("campoErro");
+    }
 
-     if( elem == $('#nome') || elem.lenght <2 ){
-
-            elem.addClass('invalid')
-            return false
-
-     } else {
-      elem.removeClass('invalid')
-   }
-     if( elem == $('#email') || emailPattern.test(elem.val())==false){
-         elem.addClass('invalid')
-         return false
-     } else {
-      elem.removeClass('invalid')
-   }
-
-     if( elem == $('#cpf') || cpfPattern.test(elem.val())==false){
-            elem.addClass('invalid')
-            return false
-     }else {
-      elem.removeClass('invalid')
-   }
+    if (elem == $("#nome") || elem.lenght < 3) {
+      elem.addClass("campoErro");
+      return false;
+    } else {
+      
+      elem.parent().find(".text-muted").hide();
+      elem.removeClass("campoErro");
+    }
+    if (elem == $("#email") || emailPattern.test($("#email").val()) == false) {
+      $(document).find("#email").addClass("campoErro");
+      return false;
+    } else {
+      elem.parent().find(".text-muted").hide();
+      elem.removeClass("campoErro");
+      return true;
+    }
+   
   }
 
-  $('body').on('submit', '.modal-body .form', function(e){
+  $("body").on("submit", ".modal-body .form", function (e) {
+    e.preventDefault();
 
-     e.preventDefault()
+    const inputName = $("#nome");
+    const inputEmail = $("#email");
+    const inputCPF = $("#cpf");
+    const inputCEP = $("#cep");
+    const inputTel = $("#phone");
 
-     const inputName = $('#nome')
-     const inputEmail = $('#email')
+    validate(inputName);
+    validate(inputEmail);
+    validate(inputCPF);
+    validate(inputCEP);
+    validate(inputTel);
 
-     validate(inputName)
-     validate(inputEmail)
+    if (inputEmail.hasClass("campoErro") || inputName.hasClass("campoErro")) {
+      console.log("verificar campos obrigatórios");
+      return false;
+    } else {
+      $(this).submit();
+    }
+  });
 
-     if(inputEmail.hasClass('invalid') || inputName.hasClass('invalid')){
-        console.log('verificar campos obrigatórios')
-        return false
-     } else {
-        $(this).submit()  
-     }
+  $("body").on("blur", "#nome", function () {
+    validate($(this));
+  });
 
-  })
+  $("body").on("blur", "#email", function () {
+    validate($(this));
+  });
 
-  $('body').on('blur', '#nome', function(){
-     validate($(this))
-  })
+  $("body").on("blur", "#cep", function () {
+    $(this).mask("00000-000");
+    validate($(this));
+  });
 
-  $('body').on('blur', '#email', function(){
-     validate($(this))
-  })
+  $("body").on("blur", "#phone", function () {
+    $(this).mask("(00)00000-0000");
+    validate($(this));
+  });
 
+  $("body").on("blur", "#cpf", function () {
+    $(this).mask("000.000.000-00");
+    validate($(this));
+  });
 
-  $('body').on('focus', '#date', function(){
-     $(this).datepicker()
-  })
-  
-  $('body').on('blur', '#cep', function(){
-     validate($(this))
-     $(this).mask('00000-000');
-  })
+  /* Manipulação de eventos */
+  $(".featured-item a").on("blur", function (event) {
+    event.preventDefault();
 
-  $('body').on('blur', '#phone', function(){
-     validate($(this))
-     $(this).mask('(00)00000-0000');
-  })
+    alert("Produto esgotado");
+  });
 
-  $('body').on('blur', '#cpf', function(){
-     validate($(this))
-     $(this).mask('000.000.000-00');
-  })
+  $("#form-submit").on("click", function (e) {
+    e.preventDefault();
 
-
-
-/* Manipulação de eventos */
-$('.featured-item a').on('blur', function(event){
-   
-   event.preventDefault();
-   
-   alert('Produto esgotado');
-   
-})
-
-$('#form-submit').on('click', function(e){
-
-   e.preventDefault()
-
-   if( $('#email2').val() == '' ){
-      $(document).find('#email2').addClass('campoErro')
-      return false
-   } else if (emailPattern.test($('#email2').val()) == false){
-      $(document).find('#email2').addClass('campoErro')
-      $(document).find('.text-muted1').show()
-      return false
-   } else {
-      alert("email cadastrado com sucesso")
-      return true
-   }
-
+    if ($("#email2").val() == "") {
+      $(document).find("#email2").addClass("campoErro");
+      return false;
+    } else if (emailPattern.test($("#email2").val()) == false) {
+      $(document).find("#email2").addClass("campoErro");
+      $(document).find(".text-muted1").show();
+      return false;
+    } else {
+      alert("email cadastrado com sucesso");
+      return true;
+    }
+  });
 });
-})
