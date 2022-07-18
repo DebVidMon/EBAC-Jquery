@@ -17,11 +17,6 @@ $(document).ready(function () {
 
     myModal.show();
 
-    //se o botão fechar for clicado
-    $(".btn-close").on(click, function (e) {
-      e.preventDefault();
-      myModal.hide();
-    });
   });
 
   /* TODO: incrementar a validação
@@ -77,25 +72,20 @@ $(document).ready(function () {
     }  
   }
 
-  $(".submitForm").on("click", function (e) {
+  $(".submitForm").on("click", function (e){
     e.preventDefault();
 
-    const inputName = $("#nome");
-    const inputEmail = $("#email");
-    const inputCPF = $("#cpf");
-    const inputTel = $("#phone");
+    validate($("#nome"));
+    validate($("#email"));
+    validate($("#cpf"));
+    validate($("#phone"));
 
-    validate(inputName);
-    validate(inputEmail);
-    validate(inputCPF);
-    validate(inputTel);
-
-    if (inputEmail.hasClass("campoErro") || inputName.hasClass("campoErro") || inputCPF.hasClass("campoErro") || inputTel.hasClass("campoErro")) {
+    if ($("#nome").hasClass("campoErro") || $("#email").hasClass("campoErro") || $("#cpf").hasClass("campoErro") || $("#phone").hasClass("campoErro")) {
       alert("⚠️ Verifique os campos destacados");
       return false;
     } else {
-      $(this).submit();
-      alert("Formulário enviado com sucesso!")
+      alert("Formulário enviado com sucesso!");
+      return true;
     }
   });
 
@@ -141,7 +131,6 @@ $(document).ready(function () {
       return false;
     } else {
       alert("email cadastrado com sucesso");
-      return true;
     }
   });
 });
