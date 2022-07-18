@@ -30,13 +30,12 @@ $(document).ready(function () {
    * - checar se o cpf é válido com regex */
   const emailPattern = /^[\w+.]+@\w+\.\w{2,}(?:\.\w{2})?$/;
   const cpfPattern = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/;
+  const phonePattern = /^(\()?\d{2}(\))?\d{5}\-\d{4}$/;
 
   function validate(elem) {
     if (elem.val() == "") {
       console.log("o campo de " + elem.attr("name") + " é obrigatório");
-
       elem.parent().find(".text-muted").show();
-
       elem.addClass("campoErro");
 
       return false;
@@ -45,45 +44,58 @@ $(document).ready(function () {
       elem.removeClass("campoErro");
     }
 
-    if (elem == $("#nome") || elem.lenght < 3) {
-      elem.addClass("campoErro");
+    if (elem == $("#nome") || $("#nome").val().length <3) {
+      elem.parent().find("#nome").addClass("campoErro");
       return false;
     } else {
-      
+
       elem.parent().find(".text-muted").hide();
       elem.removeClass("campoErro");
     }
     if (elem == $("#email") || emailPattern.test($("#email").val()) == false) {
-      $(document).find("#email").addClass("campoErro");
+      elem.parent().find("#email").addClass("campoErro");
       return false;
     } else {
       elem.parent().find(".text-muted").hide();
       elem.removeClass("campoErro");
-      return true;
     }
-   
+
+    if (elem == $("#cpf") || cpfPattern.test($("#cpf").val()) == false) {
+      elem.parent().find("#cpf").addClass("campoErro");
+      return false;
+    } else {
+      elem.parent().find(".text-muted").hide();
+      elem.removeClass("campoErro");
+    }  
+
+    if (elem == $("#phone") || phonePattern.test($("#phone").val()) == false) {
+      elem.parent().find("#phone").addClass("campoErro");
+      return false;
+    } else {
+      elem.parent().find(".text-muted").hide();
+      elem.removeClass("campoErro");
+    }  
   }
 
-  $("body").on("submit", ".modal-body .form", function (e) {
+  $(".submitForm").on("click", function (e) {
     e.preventDefault();
 
     const inputName = $("#nome");
     const inputEmail = $("#email");
     const inputCPF = $("#cpf");
-    const inputCEP = $("#cep");
     const inputTel = $("#phone");
 
     validate(inputName);
     validate(inputEmail);
     validate(inputCPF);
-    validate(inputCEP);
     validate(inputTel);
 
-    if (inputEmail.hasClass("campoErro") || inputName.hasClass("campoErro")) {
-      console.log("verificar campos obrigatórios");
+    if (inputEmail.hasClass("campoErro") || inputName.hasClass("campoErro") || inputCPF.hasClass("campoErro") || inputTel.hasClass("campoErro")) {
+      alert("⚠️ Verifique os campos destacados");
       return false;
     } else {
       $(this).submit();
+      alert("Formulário enviado com sucesso!")
     }
   });
 
