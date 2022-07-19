@@ -108,7 +108,7 @@ $(document).ready(function () {
     }  
   }
 
-  $(".submitForm").on("click", function (e){
+  $(".form").on("click", function (e){
     e.preventDefault();
 
     validate($("#nome"));
@@ -120,7 +120,8 @@ $(document).ready(function () {
       alert("⚠️ Verifique os campos destacados");
       return false;
     } else {
-      alert("Formulário enviado com sucesso!✔️");
+      $("submitForm").submit();
+      alert("Formulário enviado com sucesso! ✔️");
       return true;
     }
   });
@@ -155,7 +156,8 @@ $(document).ready(function () {
     alert("Produto esgotado");
   });
 
-  $("#form-submit").on("click", function (e) {
+  $("#subscribe").on("click", function (e) {
+
     e.preventDefault();
 
     if ($("#email2").val() == "") {
@@ -166,7 +168,8 @@ $(document).ready(function () {
       $(document).find(".text-muted1").show();
       return false;
     } else {
-      alert("Email cadastrado com sucesso✔️");
+      $("#subscribe").submit();
+      alert("Email cadastrado com sucesso! ✔️");
     }
   });
 });
