@@ -1,5 +1,5 @@
 // instancia jquery e evita conflitos
-$(document).ready(function () {
+// $(document).ready(function () {
   $(document).find(".text-muted").hide();
   $(document).find(".text-muted1").hide();
 
@@ -108,7 +108,30 @@ $(document).ready(function () {
     }  
   }
 
-  $(".form").on("click", function (e){
+  
+  $("body").on("blur", "#nome", function () {
+    validate($(this));
+  });
+  
+  $("body").on("blur", "#email", function () {
+    validate($(this));
+  });
+  
+  $("body").on("blur", "#cep", function () {
+    $(this).mask("00000-000");
+    validate($(this));
+  });
+  
+  $("body").on("blur", "#phone", function () {
+    $(this).mask("(00)00000-0000");
+    validate($(this));
+  });
+  
+  $("body").on("blur", "#cpf", function () {
+    $(this).mask("000.000.000-00");
+    validate($(this));
+  });
+  $(".submitForm").on("click", function (e){
     e.preventDefault();
 
     validate($("#nome"));
@@ -120,35 +143,17 @@ $(document).ready(function () {
       alert("⚠️ Verifique os campos destacados");
       return false;
     } else {
-      $("submitForm").submit();
-      alert("Formulário enviado com sucesso! ✔️");
-      return true;
+
+      $(this).submit();
+    //   console.log("Formulário enviado com sucesso! ✔️")
+    // //  $("#contatoForm").submit(function(e){
+    //   //  e.preventDefault();
+    //    window.location.href = "www.google.com";
+    //    alert("Formulário enviado com sucesso! ✔️");
+    // //  });
     }
   });
-
-  $("body").on("blur", "#nome", function () {
-    validate($(this));
-  });
-
-  $("body").on("blur", "#email", function () {
-    validate($(this));
-  });
-
-  $("body").on("blur", "#cep", function () {
-    $(this).mask("00000-000");
-    validate($(this));
-  });
-
-  $("body").on("blur", "#phone", function () {
-    $(this).mask("(00)00000-0000");
-    validate($(this));
-  });
-
-  $("body").on("blur", "#cpf", function () {
-    $(this).mask("000.000.000-00");
-    validate($(this));
-  });
-
+  
   /* Manipulação de eventos */
   $(".featured-item a").on("blur", function (event) {
     event.preventDefault();
@@ -172,4 +177,4 @@ $(document).ready(function () {
       alert("Email cadastrado com sucesso! ✔️");
     }
   });
-});
+// });
