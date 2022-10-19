@@ -131,29 +131,24 @@
     $(this).mask("000.000.000-00");
     validate($(this));
   });
-  $(".submitForm").on("click", function (e){
-    e.preventDefault();
 
+  function testeForm (){
     validate($("#nome"));
-    validate($("#email"));
-    validate($("#cpf"));
-    validate($("#phone"));
-
-    if ($("#nome").hasClass("campoErro") || $("#email").hasClass("campoErro") || $("#cpf").hasClass("campoErro") || $("#phone").hasClass("campoErro")) {
-      alert("⚠️ Verifique os campos destacados");
-      return false;
-    } else {
-
-      $(this).submit();
-    //   console.log("Formulário enviado com sucesso! ✔️")
-    // //  $("#contatoForm").submit(function(e){
-    //   //  e.preventDefault();
-    //    window.location.href = "www.google.com";
-    //    alert("Formulário enviado com sucesso! ✔️");
-    // //  });
-    }
-  });
+      validate($("#email"));
+      validate($("#cpf"));
+      validate($("#phone"));
   
+      if ($("#nome").hasClass("campoErro") || $("#email").hasClass("campoErro") || $("#cpf").hasClass("campoErro") || $("#phone").hasClass("campoErro")) {
+       alert("⚠️ Verifique os campos destacados");
+       return false;
+      } else {
+          alert("Formulário enviado com sucesso! ✔️");
+      
+      
+      $("#modelId").modal('toggle').delay(2000);
+      
+    }
+  }
   /* Manipulação de eventos */
   $(".featured-item a").on("blur", function (event) {
     event.preventDefault();
